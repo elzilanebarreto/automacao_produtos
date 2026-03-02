@@ -32,3 +32,11 @@ pyautogui.write(link)
 pyautogui.press('enter')
 time.sleep(3) #Esperar o site carregar
 
+# Passo 2
+# print(pyautogui.position()) #Posição do login
+pyautogui.click(x=668, y=465)
+pyautogui.write('el@gmail.com')
+pyautogui.press('tab')
+pyautogui.write('123456')
+pyautogui.press('enter')
+time.sleep(4)
