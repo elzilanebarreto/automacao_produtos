@@ -5,3 +5,30 @@
 # Passo 5: Repetir o Passo 4, até acabar a lista de produtos
 
 # Bibliotecas => pyautogui
+
+'''
+pyautogui.click #clica 
+pyautogui.write #escreve um texto
+pyautogui.press #aperta uma tecla
+pyautogui.hotkey #atalho
+
+Pausa
+pyautogui.PAUSE = 1 (segundos)
+'''
+import pyautogui
+import time
+
+pyautogui.PAUSE = 1
+link = 'https://dlp.hashtagtreinamentos.com/python/intensivao/login'
+
+# Passo 1
+pyautogui.press('win')
+pyautogui.write('Aplicativos: chrome')
+pyautogui.press('enter')
+# Escolhendo um navegador
+posicaoChrome = pyautogui.position(x=772, y=454)
+pyautogui.click(posicaoChrome)
+pyautogui.write(link)
+pyautogui.press('enter')
+time.sleep(3) #Esperar o site carregar
+
