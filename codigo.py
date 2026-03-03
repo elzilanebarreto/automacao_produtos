@@ -46,3 +46,32 @@ import pandas as pd
 
 tabela = pd.read_csv('produtos.csv')
 print(tabela)
+
+
+# Passo 4
+pyautogui.click(x=694, y=324)
+# codigo
+pyautogui.write("MOLO00251")
+pyautogui.press('tab')
+# marca
+pyautogui.write('Logitech')
+pyautogui.press('tab')
+# tipo
+pyautogui.write('Mouse')
+pyautogui.press('tab')
+# categoria
+pyautogui.write('categoria')
+pyautogui.press('tab')
+# preco_unitario
+pyautogui.write('preco')
+pyautogui.press('tab')
+# custo
+pyautogui.write('custo')
+pyautogui.press('tab')
+# custo
+pyautogui.write('obs')
+pyautogui.press('tab')
+
+pyautogui.press('enter')
+
+pyautogui.scroll(5000)
