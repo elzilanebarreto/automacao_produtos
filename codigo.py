@@ -37,6 +37,12 @@ time.sleep(3) #Esperar o site carregar
 pyautogui.click(x=668, y=465)
 pyautogui.write('el@gmail.com')
 pyautogui.press('tab')
-pyautogui.write('123456')
+pyautogui.write('#1234#')
 pyautogui.press('enter')
 time.sleep(4)
+
+# Passo 3
+import pandas as pd
+
+tabela = pd.read_csv('produtos.csv')
+print(tabela)
