@@ -1,8 +1,10 @@
-# Passo 1: Entrar no sistema da empresa
-# Passo 2: Fazer login
-# Passo 3: Abrir a base de dados
-# Passo 4: Cadastrar um produto
-# Passo 5: Repetir o Passo 4, até acabar a lista de produtos
+'''
+Passo 1: Entrar no sistema da empresa
+Passo 2: Fazer login
+Passo 3: Abrir a base de dados
+Passo 4: Cadastrar um produto
+Passo 5: Repetir o Passo 4, até acabar a lista de produtos
+'''
 
 # Bibliotecas => pyautogui
 
@@ -21,7 +23,7 @@ import time
 pyautogui.PAUSE = 1
 link = 'https://dlp.hashtagtreinamentos.com/python/intensivao/login'
 
-# Passo 1
+# Passo 1: Entrar no sistema da empresa
 pyautogui.press('win')
 pyautogui.write('Aplicativos: chrome')
 pyautogui.press('enter')
@@ -32,7 +34,7 @@ pyautogui.write(link)
 pyautogui.press('enter')
 time.sleep(3) #Esperar o site carregar
 
-# Passo 2
+# Passo 2: Fazer login
 # print(pyautogui.position()) #Posição do login
 pyautogui.click(x=668, y=465)
 pyautogui.write('el@gmail.com')
@@ -41,37 +43,47 @@ pyautogui.write('#1234#')
 pyautogui.press('enter')
 time.sleep(4)
 
-# Passo 3
+# Passo 3: Abrir a base de dados
 import pandas as pd
 
 tabela = pd.read_csv('produtos.csv')
 print(tabela)
 
+for linha in tabela.index:
+  # Passo 4: Cadastrar um produto
+  pyautogui.click(x=694, y=324)
+  # codigo
+  codigo = str(tabela.loc[linha, 'codigo'])
+  pyautogui.write(codigo)
+  pyautogui.press('tab')
+  # marca
+  marca = str(tabela.loc[linha, 'marca'])
+  pyautogui.write(marca)
+  pyautogui.press('tab')
+  # tipo
+  tipo = str(tabela.loc[linha, 'tipo'])
+  pyautogui.write(tipo)
+  pyautogui.press('tab')
+  # categoria
+  categoria = str(tabela.loc[linha, 'categoria'])
+  pyautogui.write(categoria)
+  pyautogui.press('tab')
+  # preco_unitario
+  preco = str(tabela.loc[linha, 'preco_unitario'])
+  pyautogui.write(preco)
+  pyautogui.press('tab')
+  # custo
+  custo = str(tabela.loc[linha, 'custo'])
+  pyautogui.write(custo)
+  pyautogui.press('tab')
+  # custo
+  obs = str(tabela.loc[linha, 'obs'])
+  if obs != 'nan':
+    pyautogui.write(obs)
+  pyautogui.press('tab')
 
-# Passo 4
-pyautogui.click(x=694, y=324)
-# codigo
-pyautogui.write("MOLO00251")
-pyautogui.press('tab')
-# marca
-pyautogui.write('Logitech')
-pyautogui.press('tab')
-# tipo
-pyautogui.write('Mouse')
-pyautogui.press('tab')
-# categoria
-pyautogui.write('categoria')
-pyautogui.press('tab')
-# preco_unitario
-pyautogui.write('preco')
-pyautogui.press('tab')
-# custo
-pyautogui.write('custo')
-pyautogui.press('tab')
-# custo
-pyautogui.write('obs')
-pyautogui.press('tab')
+  pyautogui.press('enter')
 
-pyautogui.press('enter')
+  pyautogui.scroll(5000)
 
-pyautogui.scroll(5000)
+# Passo 5: Repetir o Passo 4, até acabar a lista de produtos
